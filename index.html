@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pedido de T-shirts BoaVista</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Pedido de T-shirts BoaVista</h1>
+  <form id="formulario">
+    <input type="text" name="nome" placeholder="Nome" required />
+    <input type="email" name="email" placeholder="Email" required />
+    <input type="tel" name="telefone" placeholder="Telefone" required />
+
+    <label>Modelo:</label>
+    <select name="modelo" required>
+      <option value="Sweatshirt">Sweatshirt – 13,83€</option>
+      <option value="T-shirt">T-shirt – 4,75€</option>
+      <option value="Polo">Polo – 7,90€</option>
+    </select>
+
+    <label>Tamanho:</label>
+    <select name="tamanho" required>
+      <option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+    </select>
+
+    <label>Quantidade:</label>
+    <input type="number" name="quantidade" min="1" required />
+
+    <button type="submit">Enviar Pedido</button>
+  </form>
+  <p id="mensagem"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
