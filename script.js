@@ -21,7 +21,7 @@ document.getElementById("formulario").addEventListener("submit", function (e) {
     total
   };
 
-  fetch("https://script.google.com/macros/library/d/12KUqQLh2HkxW0hbObmfjn15NLAanXvAZ91OfeJCf6FBpRHQ7gr9ZsQjA/1", {
+  fetch("https://script.google.com/macros/s/AKfycbx3TR-ARo2UdJ8LZCRgGmMH0ByQmWlXq0Qlt7uooEtLA10yxrA1TRFcTrMeJI_s2_sF/exec", {
     method: "POST",
     body: JSON.stringify(dados),
     headers: {
