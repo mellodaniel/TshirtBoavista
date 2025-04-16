@@ -21,7 +21,7 @@ document.getElementById("formulario").addEventListener("submit", function (e) {
     total
   };
 
-  fetch("https://cors-proxy-boavista.vercel.app/https://script.google.com/macros/s/AKfycbx3TR-ARo2UdJ8LZCRgGmMH0ByQmWlXq0Qlt7uooEtLA10yxrA1TRFcTrMeJI_s2_sF/exec", {
+  fetch("https://tshirt-boavista.vercel.app/api/proxy", {
     method: "POST",
     body: JSON.stringify(dados),
     headers: {
