@@ -40,7 +40,6 @@
       </div>
 
       <button type="submit">Enviar Pedido</button>
-      <button type="button" id="limpar">Limpar / Novo Pedido</button>
     </form>
     <p id="mensagem"></p>
   </div>
