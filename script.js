@@ -36,6 +36,7 @@ document.getElementById("formulario").addEventListener("submit", function (e) {
         telefone,
         modelo: m.nome,
         tamanho: m.tamanho,
+        quantidade: m.quantidade,
         total: (m.quantidade * m.preco).toFixed(2)
       };
 
