@@ -27,8 +27,9 @@ document.getElementById("formulario").addEventListener("submit", function (e) {
     }
   ];
 
-  modelos.forEach((m) => {
-    if (m.quantidade > 0 && m.tamanho !== "") {
+  const pedidos = modelos
+    .filter((m) => m.quantidade > 0 && m.tamanho !== "")
+    .map((m) => {
       const dados = {
         nome,
         email,
@@ -38,21 +39,25 @@ document.getElementById("formulario").addEventListener("submit", function (e) {
         total: (m.quantidade * m.preco).toFixed(2)
       };
 
-      fetch("https://tshirt-boavista.vercel.app/api/proxy", {
+      return fetch("https://tshirt-boavista.vercel.app/api/proxy", {
         method: "POST",
         body: JSON.stringify(dados),
         headers: {
           "Content-Type": "application/json"
         }
-      }).then((res) => {
-        if (res.ok) {
-          document.getElementById("mensagem").innerText = "✅ Pedido enviado com sucesso!";
-        } else {
-          document.getElementById("mensagem").innerText = "❌ Erro ao enviar pedido.";
-        }
       });
-    }
-  });
+    });
 
-  form.reset();
+  Promise.all(pedidos)
+    .then((respostas) => {
+      if (respostas.every((res) => res.ok)) {
+        document.getElementById("mensagem").innerText = "✅ Pedido enviado com sucesso!";
+        form.reset();
+      } else {
+        document.getElementById("mensagem").innerText = "❌ Erro ao enviar um ou mais pedidos.";
+      }
+    })
+    .catch(() => {
+      document.getElementById("mensagem").innerText = "❌ Erro na comunicação com o servidor.";
+    });
 });
