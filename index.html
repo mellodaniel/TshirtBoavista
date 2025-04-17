@@ -1,36 +1,46 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-  <meta charset="UTF-8" />
-  <title>Pedido de T-shirts BoaVista</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+<link rel="stylesheet" href="style.css">
 <body>
-  <h1>Pedido de T-shirts BoaVista</h1>
-  <form id="formulario">
-    <input type="text" name="nome" placeholder="Nome" required />
-    <input type="email" name="email" placeholder="Email" required />
-    <input type="tel" name="telefone" placeholder="Telefone" required />
+  <div class="container">
+    <h1>Pedido de T-shirts BoaVista</h1>
+    <form id="formulario">
+      <div class="input-group">
+        <input type="text" name="nome" placeholder="Nome completo" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="telefone" placeholder="Telefone" required>
+      </div>
 
-    <label>Modelo:</label>
-    <select name="modelo" required>
-      <option value="Sweatshirt">Sweatshirt – 13,83€</option>
-      <option value="T-shirt">T-shirt – 4,75€</option>
-      <option value="Polo">Polo – 7,90€</option>
-    </select>
+      <div class="modelo-card">
+        <h2>Sweatshirt – 13,83€</h2>
+        <img src="sweatshirt.jpg" alt="Sweatshirt">
+        <select name="tamanho_sweatshirt">
+          <option value="">Tamanho</option>
+          <option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+        </select>
+        <input type="number" name="quantidade_sweatshirt" min="0" placeholder="Quantidade">
+      </div>
 
-    <label>Tamanho:</label>
-    <select name="tamanho" required>
-      <option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
-    </select>
+      <div class="modelo-card">
+        <h2>T-shirt – 4,75€</h2>
+        <img src="tshirt.jpg" alt="T-shirt">
+        <select name="tamanho_tshirt">
+          <option value="">Tamanho</option>
+          <option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+        </select>
+        <input type="number" name="quantidade_tshirt" min="0" placeholder="Quantidade">
+      </div>
 
-    <label>Quantidade:</label>
-    <input type="number" name="quantidade" min="1" required />
+      <div class="modelo-card">
+        <h2>Polo – 7,90€</h2>
+        <img src="polo.jpg" alt="Polo">
+        <select name="tamanho_polo">
+          <option value="">Tamanho</option>
+          <option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+        </select>
+        <input type="number" name="quantidade_polo" min="0" placeholder="Quantidade">
+      </div>
 
-    <button type="submit">Enviar Pedido</button>
-  </form>
-  <p id="mensagem"></p>
-
-  <script src="script.js"></script>
+      <button type="submit">Enviar Pedido</button>
+    </form>
+    <p id="mensagem"></p>
+  </div>
 </body>
-</html>

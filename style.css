@@ -1,17 +1,70 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
   padding: 20px;
-  background: #f4f4f4;
 }
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  background: white;
-  padding: 20px;
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.modelo-card {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 20px;
   border-radius: 6px;
 }
-input, select, button {
+
+.modelo-card h2 {
+  margin-top: 0;
+}
+
+.modelo-card img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+select, input[type="number"] {
+  width: 100%;
   padding: 10px;
-  font-size: 16px;
+  font-size: 15px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+
+button {
+  width: 100%;
+  background-color: #0077cc;
+  color: white;
+  font-size: 18px;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005fa3;
 }
