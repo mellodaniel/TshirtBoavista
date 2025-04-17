@@ -57,10 +57,20 @@ document.getElementById("formulario").addEventListener("submit", function (e) {
     .then((respostas) => {
       if (respostas.every((res) => res.ok)) {
         document.getElementById("mensagem").innerText = "✅ Pedido enviado com sucesso!";
+
+        // 💶 Calcular o total com IVA (23%)
+        const totalComIVA = modelos
+          .filter((m) => m.quantidade > 0 && m.tamanho !== "")
+          .reduce((acc, m) => acc + (m.quantidade * m.preco * 1.23), 0);
+
+        // 💬 Mostrar popup com total final
+        alert(`Total com IVA (23%): €${totalComIVA.toFixed(2)}`);
+
         form.reset();
       } else {
         document.getElementById("mensagem").innerText = "❌ Erro ao enviar um ou mais pedidos.";
       }
+
       botao.disabled = false;
       botao.innerText = "Enviar Pedido";
     })
