@@ -2,37 +2,57 @@ document.getElementById("formulario").addEventListener("submit", function (e) {
   e.preventDefault();
 
   const form = e.target;
-  const modelo = form.modelo.value;
-  const precoMap = {
-    "Sweatshirt": 13.83,
-    "T-shirt": 4.75,
-    "Polo": 7.90
-  };
-  const quantidade = parseInt(form.quantidade.value);
-  const total = (quantidade * precoMap[modelo]).toFixed(2);
+  const nome = form.nome.value;
+  const email = form.email.value;
+  const telefone = form.telefone.value;
 
-  const dados = {
-    nome: form.nome.value,
-    email: form.email.value,
-    telefone: form.telefone.value,
-    modelo,
-    tamanho: form.tamanho.value,
-    quantidade,
-    total
-  };
-
-  fetch("https://tshirt-boavista.vercel.app/api/proxy", {
-    method: "POST",
-    body: JSON.stringify(dados),
-    headers: {
-      "Content-Type": "application/json"
+  const modelos = [
+    {
+      nome: "Sweatshirt",
+      tamanho: form.tamanho_sweatshirt.value,
+      quantidade: parseInt(form.quantidade_sweatshirt.value),
+      preco: 13.83
+    },
+    {
+      nome: "T-shirt",
+      tamanho: form.tamanho_tshirt.value,
+      quantidade: parseInt(form.quantidade_tshirt.value),
+      preco: 4.75
+    },
+    {
+      nome: "Polo",
+      tamanho: form.tamanho_polo.value,
+      quantidade: parseInt(form.quantidade_polo.value),
+      preco: 7.90
     }
-  }).then(res => {
-    if (res.ok) {
-      document.getElementById("mensagem").innerText = "Pedido enviado com sucesso!";
-      form.reset();
-    } else {
-      document.getElementById("mensagem").innerText = "Erro ao enviar pedido.";
+  ];
+
+  modelos.forEach((m) => {
+    if (m.quantidade > 0 && m.tamanho !== "") {
+      const dados = {
+        nome,
+        email,
+        telefone,
+        modelo: m.nome,
+        tamanho: m.tamanho,
+        total: (m.quantidade * m.preco).toFixed(2)
+      };
+
+      fetch("https://tshirt-boavista.vercel.app/api/proxy", {
+        method: "POST",
+        body: JSON.stringify(dados),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then((res) => {
+        if (res.ok) {
+          document.getElementById("mensagem").innerText = "✅ Pedido enviado com sucesso!";
+        } else {
+          document.getElementById("mensagem").innerText = "❌ Erro ao enviar pedido.";
+        }
+      });
     }
   });
+
+  form.reset();
 });
