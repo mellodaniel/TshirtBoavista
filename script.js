@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           // 🔒 Desativa botão até novo pedido
           botao.disabled = true;
-          botao.innerText = "Pedido enviado";
+          botao.innerText = "Pedido enviado ✅";
         } else {
           document.getElementById("mensagem").innerText = "❌ Erro ao enviar um ou mais pedidos.";
           botao.disabled = false;
