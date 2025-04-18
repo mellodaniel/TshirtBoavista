@@ -26,10 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
     modeloWrapper.appendChild(linha);
   }
 
-  // Inicializa 1 linha para cada modelo
   document.querySelectorAll(".modelo-wrapper").forEach(wrapper => criarLinha(wrapper));
 
-  // Botões "+ Adicionar outro tamanho"
   document.querySelectorAll(".adicionar").forEach(btn => {
     btn.addEventListener("click", () => {
       const targetId = btn.dataset.target;
@@ -38,7 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // SUBMIT
   document.getElementById("formulario").addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -62,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const quantidade = parseInt(linha.querySelector("input").value) || 0;
 
         if (tamanho && quantidade > 0) {
+          const total = quantidade * preco;
           pedidos.push({
             nome,
             email,
@@ -69,7 +67,8 @@ document.addEventListener("DOMContentLoaded", function () {
             modelo,
             tamanho,
             quantidade,
-            total: (quantidade * preco).toFixed(2)
+            total: total.toFixed(2),
+            totalComIVA: (total * 1.23).toFixed(2)
           });
         }
       });
@@ -97,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (respostas.every(res => res.ok)) {
           document.getElementById("mensagem").innerText = "✅ Pedido enviado com sucesso!";
 
-          const totalComIVA = pedidos.reduce((acc, p) => acc + p.quantidade * parseFloat(p.total / p.quantidade) * 1.23, 0);
+          const totalComIVA = pedidos.reduce((acc, p) => acc + parseFloat(p.totalComIVA), 0);
           alert(`Total com IVA (23%): €${totalComIVA.toFixed(2)}`);
 
           form.reset();
@@ -106,7 +105,6 @@ document.addEventListener("DOMContentLoaded", function () {
             criarLinha(wrapper);
           });
 
-          // 🔒 Desativa botão até novo pedido
           botao.disabled = true;
           botao.innerText = "Pedido enviado ✅";
         } else {
@@ -122,7 +120,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
 
-  // LIMPAR
   document.getElementById("limpar").addEventListener("click", function () {
     const form = document.getElementById("formulario");
     form.reset();
@@ -133,7 +130,6 @@ document.addEventListener("DOMContentLoaded", function () {
       criarLinha(wrapper);
     });
 
-    // 🔓 Reativa botão de envio
     const botao = form.querySelector('button[type="submit"]');
     botao.disabled = false;
     botao.innerText = "Enviar Pedido";
