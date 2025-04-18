@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const tamanhos = ["S", "M", "L", "XL", "XXL"];
 
-  // Adiciona uma nova linha de tamanho + quantidade
   function criarLinha(modeloWrapper) {
     const linha = document.createElement("div");
     linha.classList.add("linha-pedido");
@@ -27,10 +26,10 @@ document.addEventListener("DOMContentLoaded", function () {
     modeloWrapper.appendChild(linha);
   }
 
-  // Inicializar todos os blocos com 1 linha por modelo
+  // Inicializa 1 linha para cada modelo
   document.querySelectorAll(".modelo-wrapper").forEach(wrapper => criarLinha(wrapper));
 
-  // Botões de "+ Adicionar outro tamanho"
+  // Botões "+ Adicionar outro tamanho"
   document.querySelectorAll(".adicionar").forEach(btn => {
     btn.addEventListener("click", () => {
       const targetId = btn.dataset.target;
@@ -39,9 +38,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Envio do formulário
+  // SUBMIT
   document.getElementById("formulario").addEventListener("submit", function (e) {
     e.preventDefault();
+
     const form = e.target;
     const botao = form.querySelector('button[type="submit"]');
     botao.disabled = true;
@@ -105,11 +105,15 @@ document.addEventListener("DOMContentLoaded", function () {
             wrapper.innerHTML = "";
             criarLinha(wrapper);
           });
+
+          // 🔒 Desativa botão até novo pedido
+          botao.disabled = true;
+          botao.innerText = "Pedido enviado";
         } else {
           document.getElementById("mensagem").innerText = "❌ Erro ao enviar um ou mais pedidos.";
+          botao.disabled = false;
+          botao.innerText = "Enviar Pedido";
         }
-        botao.disabled = false;
-        botao.innerText = "Enviar Pedido";
       })
       .catch(() => {
         document.getElementById("mensagem").innerText = "❌ Erro na comunicação com o servidor.";
@@ -118,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
 
-  // Limpar formulário
+  // LIMPAR
   document.getElementById("limpar").addEventListener("click", function () {
     const form = document.getElementById("formulario");
     form.reset();
@@ -128,5 +132,10 @@ document.addEventListener("DOMContentLoaded", function () {
       wrapper.innerHTML = "";
       criarLinha(wrapper);
     });
+
+    // 🔓 Reativa botão de envio
+    const botao = form.querySelector('button[type="submit"]');
+    botao.disabled = false;
+    botao.innerText = "Enviar Pedido";
   });
 });
