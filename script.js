@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
             tamanho,
             quantidade,
             total: total.toFixed(2),
-            totalComIVA: (total * 1,23).toFixed(2)
+            totalComIVA: (total * 1.23).toFixed(2)
           });
         }
       });
