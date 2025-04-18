@@ -1,68 +1,97 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f2f2f2;
-  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
   padding: 20px;
+  margin: 0;
 }
 
 .container {
-  max-width: 700px;
-  margin: auto;
-  background-color: #fff;
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 30px;
-}
-
-.input-group input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  font-size: 16px;
+  color: #333;
 }
 
 .modelo-card {
-  background-color: #fafafa;
+  background: #fafafa;
   border: 1px solid #ddd;
   padding: 15px;
-  margin-bottom: 20px;
   border-radius: 6px;
-}
-
-.modelo-card h2 {
-  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 .modelo-card img {
   width: 100%;
-  max-height: 300px;     
-  object-fit: contain;   /* mostra a imagem toda sem cortar */
+  max-height: 180px;
+  object-fit: contain;
   margin-bottom: 10px;
   border-radius: 4px;
-  background-color: #f9f9f9; /* opcional: dá contraste se tiver fundo transparente */
+  border: 1px solid #ccc;
 }
 
-select, input[type="number"] {
-  width: 100%;
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-group input {
   padding: 10px;
-  font-size: 15px;
-  margin-top: 8px;
+  font-size: 16px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+}
+
+.linha-pedido {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 10px;
 }
 
-button {
+.linha-pedido select,
+.linha-pedido input {
+  flex: 1;
+  padding: 8px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.linha-pedido .remover {
+  background: #ff5e5e;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.linha-pedido .remover:hover {
+  background: #e04848;
+}
+
+button[type="submit"],
+#adicionar,
+#limpar,
+button.adicionar {
   width: 100%;
-  font-size: 18px;
+  font-size: 16px;
   padding: 12px;
+  margin-top: 10px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  margin-bottom: 15px;
 }
 
 button[type="submit"] {
@@ -74,13 +103,31 @@ button[type="submit"]:hover {
   background-color: #3a3fbf;
 }
 
-#limpar {
-  margin-top: 10px;
-  background-color: #e0e0e0;
+#adicionar,
+button.adicionar {
+  background-color: #f0f0f0;
   color: #333;
   border: 1px solid #ccc;
 }
 
+#adicionar:hover,
+button.adicionar:hover {
+  background-color: #e0e0e0;
+}
+
+#limpar {
+  background-color: #ddd;
+  color: #000;
+  border: 1px solid #aaa;
+}
+
 #limpar:hover {
-  background-color: #d5d5d5;
+  background-color: #ccc;
+}
+
+#mensagem {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
 }

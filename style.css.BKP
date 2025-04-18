@@ -57,15 +57,30 @@ select, input[type="number"] {
 
 button {
   width: 100%;
-  background-color: #0077cc;
-  color: white;
   font-size: 18px;
   padding: 12px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  margin-bottom: 15px;
 }
 
-button:hover {
-  background-color: #005fa3;
+button[type="submit"] {
+  background-color: #4a50e0;
+  color: white;
+}
+
+button[type="submit"]:hover {
+  background-color: #3a3fbf;
+}
+
+#limpar {
+  margin-top: 10px;
+  background-color: #e0e0e0;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+#limpar:hover {
+  background-color: #d5d5d5;
 }

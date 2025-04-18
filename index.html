@@ -1,51 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Pedido de T-shirts BoaVista</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
     <h1>Pedido de T-shirts BoaVista</h1>
+
     <form id="formulario">
       <div class="input-group">
-        <input type="text" name="nome" placeholder="Nome completo" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="tel" name="telefone" placeholder="Telefone" required>
+        <input type="text" name="nome" placeholder="Nome completo" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="tel" name="telefone" placeholder="Telefone" required />
       </div>
 
       <!-- T-shirt -->
       <div class="modelo-card">
         <h2>T-shirt – 4,75€</h2>
-        <img src="images/tshirt.png" alt="T-shirt">
-        <div class="linha-tamanho"><label>S:</label><input type="number" name="tshirt_S" min="0" value="0"></div>
-        <div class="linha-tamanho"><label>M:</label><input type="number" name="tshirt_M" min="0" value="0"></div>
-        <div class="linha-tamanho"><label>L:</label><input type="number" name="tshirt_L" min="0" value="0"></div>
-        <div class="linha-tamanho"><label>XL:</label><input type="number" name="tshirt_XL" min="0" value="0"></div>
-        <div class="linha-tamanho"><label>XXL:</label><input type="number" name="tshirt_XXL" min="0" value="0"></div>
+        <img src="images/tshirt.png" alt="T-shirt" />
+        <div id="tshirt-wrapper" class="modelo-wrapper" data-modelo="T-shirt" data-preco="4.75"></div>
+        <button type="button" class="adicionar" data-target="tshirt-wrapper">+ Adicionar outro tamanho</button>
       </div>
 
       <!-- Sweatshirt -->
       <div class="modelo-card">
         <h2>Sweatshirt – 13,83€</h2>
-        <img src="images/sweatshirt.png" alt="Sweatshirt">
-        <div class="linha-tamanho"><label>S:</label><input type="number" name="sweatshirt_S" min="0" value="0"></div>
-        <div class="linha-tamanho"><label>M:</label><input type="number" name="sweatshirt_M" min="0" value="0"></div>
-        <div class="linha-tamanho"><label>L:</label><input type="number" name="sweatshirt_L" min="0" value="0"></div>
-        <div class="linha-tamanho"><label>XL:</label><input type="number" name="sweatshirt_XL" min="0" value="0"></div>
-        <div class="linha-tamanho"><label>XXL:</label><input type="number" name="sweatshirt_XXL" min="0" value="0"></div>
+        <img src="images/sweatshirt.png" alt="Sweatshirt" />
+        <div id="sweatshirt-wrapper" class="modelo-wrapper" data-modelo="Sweatshirt" data-preco="13.83"></div>
+        <button type="button" class="adicionar" data-target="sweatshirt-wrapper">+ Adicionar outro tamanho</button>
       </div>
 
       <!-- Polo -->
       <div class="modelo-card">
         <h2>Polo – 7,90€</h2>
-        <img src="images/polo.png" alt="Polo">
-        <div class="linha-tamanho"><label>S:</label><input type="number" name="polo_S" min="0" value="0"></div>
-        <div class="linha-tamanho"><label>M:</label><input type="number" name="polo_M" min="0" value="0"></div>
-        <div class="linha-tamanho"><label>L:</label><input type="number" name="polo_L" min="0" value="0"></div>
-        <div class="linha-tamanho"><label>XL:</label><input type="number" name="polo_XL" min="0" value="0"></div>
-        <div class="linha-tamanho"><label>XXL:</label><input type="number" name="polo_XXL" min="0" value="0"></div>
+        <img src="images/polo.png" alt="Polo" />
+        <div id="polo-wrapper" class="modelo-wrapper" data-modelo="Polo" data-preco="7.90"></div>
+        <button type="button" class="adicionar" data-target="polo-wrapper">+ Adicionar outro tamanho</button>
       </div>
 
       <button type="submit">Enviar Pedido</button>
